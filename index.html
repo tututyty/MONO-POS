@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101010"><meta name="description" content="MoNo POS - bán hàng mang đi"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css"><title>MoNo POS</title>
+</head>
+<body>
+<header><div><div class="brand">MoNo<span> POS</span></div><div class="sub">BÁN HÀNG MANG ĐI</div></div><div class="net"><i id="netDot"></i><span id="netText">Đang kiểm tra</span></div></header>
+<main>
+<section class="statusbar"><span id="syncStatus">Chưa kết nối Google Sheets</span><button id="syncBtn" class="outline">Đồng bộ</button></section>
+<section class="panel setup" id="setupPanel"><h2>Kết nối Google Sheets</h2><p class="hint">Cấu hình một lần trên thiết bị này. Không nhập mật khẩu Google vào đây.</p><label>OAuth Client ID<input id="clientId" placeholder="...apps.googleusercontent.com" autocomplete="off"></label><label>Google Spreadsheet ID<input id="sheetId" placeholder="Mã nằm giữa /d/ và /edit trong URL" autocomplete="off"></label><div class="actions"><button id="saveConfig">Lưu cấu hình</button><button id="googleBtn" class="outline">Đăng nhập Google</button></div><p class="hint tiny">Cần bật Google Sheets API và cấu hình OAuth Web client cho đúng domain hosting. Hướng dẫn nằm trong README.</p></section>
+<section class="panel"><div class="sectionhead"><h2>Chọn món</h2><span class="tag">Dữ liệu mẫu</span></div><div id="categories" class="categories"></div><div id="products" class="products"></div></section>
+<section class="panel cartpanel"><div class="sectionhead"><h2>Đơn hiện tại</h2><button id="clearCart" class="textbtn">Xóa đơn</button></div><div id="cart"><p class="empty">Chọn món để bắt đầu.</p></div><div class="totalrow"><span>Tổng thanh toán</span><strong id="total">0đ</strong></div><div class="payrow"><label>Thanh toán<select id="payment"><option value="Tiền mặt">Tiền mặt</option><option value="Chuyển khoản">Chuyển khoản</option><option value="Khác">Khác</option></select></label><button id="saveOrder" class="primary">Lưu đơn</button></div></section>
+<section class="panel"><div class="sectionhead"><h2>Đơn trên thiết bị</h2><span id="pendingCount" class="tag">0 chờ đồng bộ</span></div><div id="orders"><p class="empty">Chưa có đơn.</p></div></section>
+<section class="panel"><h2>Ghi chú</h2><p class="hint">Phiên bản khởi tạo: giá và công thức trong app hiện là dữ liệu mẫu để kiểm tra thao tác. Chưa dùng làm số liệu kinh doanh thật cho đến khi thay bằng menu và định lượng đã xác nhận.</p></section>
+</main><div id="toast" role="status" aria-live="polite"></div>
+<script src="https://accounts.google.com/gsi/client" async defer></script><script src="app.js"></script>
+</body></html>
